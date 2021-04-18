@@ -1,0 +1,1 @@
+This is a file which we will use to test file transfers from client to server
