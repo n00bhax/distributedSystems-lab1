@@ -1,11 +1,14 @@
-import java.io.*;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 
-public class Client {
+public class Client2 {
     private static DataOutputStream dataOutputStream = null;
 
     public static void main(String[] args) {
-        try(Socket socket = new Socket("localhost",5000)) {
+        try(Socket socket = new Socket("localhost",5001)) {
 
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
             sendFile("C:\\Users\\Willem\\IdeaProjects\\6-DistributedSystems\\lab1\\src\\data.txt");
@@ -20,6 +23,8 @@ public class Client {
         int bytes;
         File file = new File(path);
         FileInputStream fileInputStream = new FileInputStream(file);
+
+        TimeUnit.SECONDS.sleep(2);
 
         // send file size
         dataOutputStream.writeLong(file.length());
