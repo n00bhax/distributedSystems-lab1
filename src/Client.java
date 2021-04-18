@@ -3,17 +3,14 @@ import java.net.Socket;
 
 public class Client {
     private static DataOutputStream dataOutputStream = null;
-    private static DataInputStream dataInputStream = null;
 
     public static void main(String[] args) {
         try(Socket socket = new Socket("localhost",5000)) {
-            dataInputStream = new DataInputStream(socket.getInputStream());
+
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
-
             sendFile("C:\\Users\\Willem\\IdeaProjects\\6-DistributedSystems\\lab1\\src\\data.txt");
+            dataOutputStream.close();
 
-            dataInputStream.close();
-            dataInputStream.close();
         }catch (Exception e){
             e.printStackTrace();
         }
