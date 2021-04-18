@@ -1,14 +1,16 @@
+package TCP;
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
 
-public class Client2 {
+public class Client1 {
     private static DataOutputStream dataOutputStream = null;
 
     public static void main(String[] args) {
-        try(Socket socket = new Socket("localhost",5001)) {
+        try(Socket socket = new Socket("localhost",5000)) {
 
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
             sendFile("C:\\Users\\Willem\\IdeaProjects\\6-DistributedSystems\\lab1\\src\\data.txt");
